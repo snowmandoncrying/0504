@@ -1,0 +1,48 @@
+@ 마이페이지
+
+사용자가 자신의 계정 정보를 관리하고 필요한 작업을 수행할 수 있는 공간
+
+개인 정보 관리:
+비밀번호 수정 
+
+계정 관리:
+회원 탈퇴
+
+그니까 myPage.jsp mypagePro.jsp 만들고
+myPage.jsp 에 delete.jsp 수정.jsp 를 a href 로 넘기면 됨 > 그럼 연결이 된다.
+
+delete.jsp / deletePro.jsp (만들었음)
+
+비번수정.jsp 비번 수정Pro.jsp 만들어야지
+--------------
+
+오늘날짜 - 만나이 
+만 18세 * 12 개월수
+전체 개월수를 뽑아서 birth개월수 가 216개월수보다 높으면 성인이고 낮으면 미성년자 
+dto
+
+if (age >= 18) {
+    this.grade = "성인";
+} else if (age < 18) {
+    this.grade = "미성년";
+} else {
+    this.grade="관리자";
+
+----------
+calculateAge() 메소드는 setBirth() 메소드 내부에서 사용되는 보조 메소드로서, 
+생년월일을 기반으로 사용자의 나이를 계산하는 데 사용
+
+따라서 setBirth() 메소드 내부에 포함
+
+사용자의 생년월일을 입력받아 현재 날짜와 비교하여 사용자의 나이를 계산
+
+birthDate: LocalDate 형식의 사용자의 생년월일
+now: LocalDate.now() 메소드를 사용하여 현재 날짜를 나타내는 LocalDate 객체
+Period.between(birthDate, now): birthDate와 now 사이의 기간을 계산하고 이를 통해 두 날짜의 차이를 Period 객체로 반환
+period.getYears(): Period 객체에서 날짜 차이를 연도로 변환하여 반환. 따라서 이 메소드는 사용자의 나이를 연도 단위로 반환.
+
+--------
+
+관리자로 로그인하면 관리자는 글쓰기가 되도록 했고
+일반이 로그인하면 글쓰기는 없어짐
+그리고 로그아웃하면 홈으로 가도록 수정
